@@ -16,17 +16,23 @@ public class Main {
 
             switch (option) {
                 case 1:
-                    System.err.println("Escolha o tipo de Alerta (SQL_INJECTION, XSS, BRUTE_FORCE): ");
-                    String typeAlert = inputUser.nextLine();
+                    System.err.print("\nEscolha o tipo de Alerta (SQL_INJECTION, XSS, BRUTE_FORCE): ");
+                    String typeAlert = inputUser.next();
                     
-                    System.out.println("Descreva melhor o Alerta: ");
-                    String descriptionAlert = inputUser.nextLine();
+                    System.out.print("Descreva melhor o Alerta: ");
+                    String descriptionAlert = inputUser.next();
 
-                    System.out.println("Escolha um nível de severidade (LOW, MEDIUM, HIGH): ");
-                    String severityAlert = inputUser.nextLine();
+                    System.out.print("Escolha um nível de severidade (LOW, MEDIUM, HIGH): ");
+                    String severityAlert = inputUser.next();
 
-                    Alert alerta = new Alert(typeAlert, descriptionAlert, severityAlert);
+                    Alert alert = new Alert(typeAlert, descriptionAlert, severityAlert);
                     
+                    if (alert != null) {
+                        System.out.println("Alerta cadastrado com sucesso.");
+                        System.out.println();
+                    } else {
+                        System.out.println("Erro ao cadastrar novo Alerta.");
+                    }
                     break;
                 case 5:
                     break;

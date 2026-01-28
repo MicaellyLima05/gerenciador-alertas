@@ -1,6 +1,8 @@
 public class Alert {
 
-    private static int id = 0;
+    private static int counter = 0;
+
+    private int id;
 
     private String type;
 
@@ -9,12 +11,9 @@ public class Alert {
     private String severity;
 
     private Boolean resolved;
-
-    public static int gerarProximoId(int id) {
-        return id++;  
-    }
     
     public Alert(String type, String description, String severity){
+        this.id = counter++;
         this.type = type;
         this.description = description;
         this.severity = severity;
@@ -24,5 +23,8 @@ public class Alert {
     public void solveAlert (Boolean resolved) {
         this.resolved = resolved;
     }
+
+    //setters
+    
 
 }
