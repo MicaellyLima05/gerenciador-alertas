@@ -16,8 +16,17 @@ public class Main {
 
             switch (option) {
                 case 1:
+                    System.err.println("Escolha o tipo de Alerta (SQL_INJECTION, XSS, BRUTE_FORCE): ");
+                    String typeAlert = inputUser.nextLine();
                     
-                    Alert alerta = new Alert(null, null, null)
+                    System.out.println("Descreva melhor o Alerta: ");
+                    String descriptionAlert = inputUser.nextLine();
+
+                    System.out.println("Escolha um nível de severidade (LOW, MEDIUM, HIGH): ");
+                    String severityAlert = inputUser.nextLine();
+
+                    Alert alerta = new Alert(typeAlert, descriptionAlert, severityAlert);
+                    
                     break;
                 case 5:
                     break;

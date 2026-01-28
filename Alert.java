@@ -1,6 +1,6 @@
 public class Alert {
 
-    private int id;
+    private static int id = 0;
 
     private String type;
 
@@ -10,6 +10,9 @@ public class Alert {
 
     private Boolean resolved;
 
+    public static int gerarProximoId(int id) {
+        return id++;  
+    }
     
     public Alert(String type, String description, String severity){
         this.type = type;
