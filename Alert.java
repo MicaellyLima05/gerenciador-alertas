@@ -20,8 +20,12 @@ public class Alert {
         this.resolved = false;
     };
 
-    public void solveAlert (Boolean resolved) {
-        this.resolved = resolved;
+    public void solveAlert() {
+        this.resolved = true;
+    }
+
+    public String toString() {
+        return "\nId: " + this.id + "\nTipo: " + this.type + "\nDescrição: " + this.description + "\nSeveridade: " + this.severity;
     }
 
     //getters

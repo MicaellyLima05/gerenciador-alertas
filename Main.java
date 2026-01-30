@@ -1,3 +1,5 @@
+import java.util.Map;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
@@ -26,12 +28,20 @@ public class Main {
                     String severityAlert = inputUser.next();
 
                     Alert alert = new Alert(typeAlert, descriptionAlert, severityAlert);
-                    
+
                     if (alert != null) {
                         System.out.print("\nAlerta nº " + alert.getId() + " cadastrado com sucesso.\n");
                     } else {
                         System.out.println("Erro ao cadastrar novo Alerta.");
                     }
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    AlertService alertManager = new AlertService();
+                    alertManager.addCreatedAlert(alert);
+                    System.out.println(alertManager.createdAlerts);
+
                     break;
                 case 5:
                     break;
