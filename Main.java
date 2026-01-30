@@ -1,5 +1,3 @@
-import java.util.Map;
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
@@ -27,10 +25,14 @@ public class Main {
                     System.out.print("\nEscolha um nível de severidade (LOW, MEDIUM, HIGH): ");
                     String severityAlert = inputUser.next();
 
-                    Alert alert = new Alert(typeAlert, descriptionAlert, severityAlert);
+                    Alert alert = new Alert();
+                    AlertService alertManager = new AlertService();
+
+                    alertManager.registerAlert(alert, typeAlert, descriptionAlert, severityAlert);
 
                     if (alert != null) {
                         System.out.print("\nAlerta nº " + alert.getId() + " cadastrado com sucesso.\n");
+                        System.out.println(alert.toString());
                     } else {
                         System.out.println("Erro ao cadastrar novo Alerta.");
                     }

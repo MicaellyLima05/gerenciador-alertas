@@ -11,38 +11,31 @@ public class Alert {
     private String severity;
 
     private Boolean resolved;
-    
-    public Alert(String type, String description, String severity){
-        this.id = counter++;
-        this.type = type;
-        this.description = description;
-        this.severity = severity;
-        this.resolved = false;
-    };
-
-    public void solveAlert() {
-        this.resolved = true;
-    }
 
     public String toString() {
         return "\nId: " + this.id + "\nTipo: " + this.type + "\nDescrição: " + this.description + "\nSeveridade: " + this.severity;
     }
 
+    //setters
+    public void setId() {
+        this.id = counter++;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setSeverity(String severity) {
+        this.severity = severity;
+    }
+
     //getters
     public int getId() {
         return this.id;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public String getSeverity() {
-        return this.severity;
     }
 
 }

@@ -1,11 +1,10 @@
-import java.util.HashMap;
-import java.util.Map;
+public class AlertService extends Alert{
 
-public class AlertService{
-
-    public Map<Integer, String> createdAlerts = new HashMap<>();
-    
-    public void addCreatedAlert(Alert alert) {
-        createdAlerts.put(alert.getId(), alert.toString());
+    public void registerAlert(Alert alert, String type, String description, String severity) {
+        alert.setId();
+        alert.setType(type);
+        alert.setDescription(description);
+        alert.setSeverity(severity);
     }
+    
 }
