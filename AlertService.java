@@ -17,10 +17,17 @@ public class AlertService extends Alert{
     }
 
     public void listCreatedAlerts() {
-
          for (int i = 0; i < createdAlerts.size(); i++) {
             System.out.println("\n // ALERTA //\n" + createdAlerts.get(i));
         }
+    }
+
+    public void listCreatedAlertsBySeverity(String severity) {
+        createdAlerts.forEach((key, value) -> {
+                if (value.contains(severity)) {
+                    System.out.println("\n // ALERTA //\n" + value);
+                }
+            });
     }
 
 }

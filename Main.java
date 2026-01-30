@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -10,42 +11,51 @@ public class Main {
 
         int option = 0;
         AlertService alertManager = new AlertService();
-        
-        while (option != 5) {
-            System.out.print("Opção: ");
-            option = inputUser.nextInt();
 
-            switch (option) {
-                case 1:
-                    System.out.print("\nEscolha o tipo de Alerta (SQL_INJECTION, XSS, BRUTE_FORCE): ");
-                    String typeAlert = inputUser.next();
-                    
-                    System.out.print("\nDescreva melhor o Alerta: ");
-                    String descriptionAlert = inputUser.next();
+        try {
+            while (option != 5) {
+                System.out.print("\nOpção: ");
+                option = inputUser.nextInt();
 
-                    System.out.print("\nEscolha um nível de severidade (LOW, MEDIUM, HIGH): ");
-                    String severityAlert = inputUser.next();
+                switch (option) {
+                    case 1:
+                        System.out.print("\nEscolha o tipo de Alerta (SQL_INJECTION, XSS, BRUTE_FORCE): ");
+                        String typeAlert = inputUser.next();
+                        
+                        System.out.print("\nDescreva melhor o Alerta: ");
+                        String descriptionAlert = inputUser.next();
 
-                    Alert alert = new Alert();
+                        System.out.print("\nEscolha um nível de severidade (LOW, MEDIUM, HIGH): ");
+                        String severityAlert = inputUser.next();
 
-                    alertManager.registerAlert(alert, typeAlert, descriptionAlert, severityAlert);
-                    alertManager.addCreatedAlert(alert.getId(), alert.toString());
+                        Alert alert = new Alert();
 
-                    if (alert != null) {
-                        System.out.print("\nAlerta nº " + alert.getId() + " cadastrado com sucesso.\n");
-                    } else {
-                        System.out.println("Erro ao cadastrar novo Alerta.");
-                    }
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    alertManager.listCreatedAlerts();
-                    break;
-                case 5:
-                    break;
-            }
-        };
+                        alertManager.registerAlert(alert, typeAlert, descriptionAlert, severityAlert);
+                        alertManager.addCreatedAlert(alert.getId(), alert.toString());
+
+                        if (alert != null) {
+                            System.out.print("\nAlerta nº " + alert.getId() + " cadastrado com sucesso.\n");
+                        } else {
+                            System.out.println("Erro ao cadastrar novo Alerta.");
+                        }
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        alertManager.listCreatedAlerts();
+                        break;
+                    case 4:
+                        System.out.print("\nQual severidade deseja verificar(LOW, MEDIUM, HIGH): ");
+                        String severityToList = inputUser.next();
+                        alertManager.listCreatedAlertsBySeverity(severityToList);
+                        break;
+                    case 5:
+                        break;
+                }
+            };
+        } catch (InputMismatchException e) {
+            System.out.println("Escolha dentre as opções oferecidas.");
+        }
     
     }
 };
