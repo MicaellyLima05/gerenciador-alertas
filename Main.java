@@ -11,7 +11,7 @@ public class Main {
         Scanner inputUser = new Scanner(System.in);
 
         int option = 0;
-
+        
         while (option != 5) {
             System.out.print("Opção: ");
             option = inputUser.nextInt();
@@ -38,10 +38,7 @@ public class Main {
                 case 2:
                     break;
                 case 3:
-                    AlertService alertManager = new AlertService();
-                    alertManager.addCreatedAlert(alert);
-                    System.out.println(alertManager.createdAlerts);
-
+                    
                     break;
                 case 5:
                     break;
