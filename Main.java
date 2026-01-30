@@ -9,6 +9,7 @@ public class Main {
         Scanner inputUser = new Scanner(System.in);
 
         int option = 0;
+        AlertService alertManager = new AlertService();
         
         while (option != 5) {
             System.out.print("Opção: ");
@@ -26,13 +27,12 @@ public class Main {
                     String severityAlert = inputUser.next();
 
                     Alert alert = new Alert();
-                    AlertService alertManager = new AlertService();
 
                     alertManager.registerAlert(alert, typeAlert, descriptionAlert, severityAlert);
+                    alertManager.addCreatedAlert(alert.getId(), alert.toString());
 
                     if (alert != null) {
                         System.out.print("\nAlerta nº " + alert.getId() + " cadastrado com sucesso.\n");
-                        System.out.println(alert.toString());
                     } else {
                         System.out.println("Erro ao cadastrar novo Alerta.");
                     }
@@ -40,7 +40,7 @@ public class Main {
                 case 2:
                     break;
                 case 3:
-                    
+                    alertManager.listCreatedAlerts();
                     break;
                 case 5:
                     break;

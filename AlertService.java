@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class AlertService extends Alert{
 
     public void registerAlert(Alert alert, String type, String description, String severity) {
@@ -6,5 +9,18 @@ public class AlertService extends Alert{
         alert.setDescription(description);
         alert.setSeverity(severity);
     }
-    
+
+    public Map<Integer, String> createdAlerts = new HashMap<>();
+
+    public void addCreatedAlert(int alertId, String alertToString) {
+        createdAlerts.put(alertId, alertToString);
+    }
+
+    public void listCreatedAlerts() {
+
+         for (int i = 0; i < createdAlerts.size(); i++) {
+            System.out.println("\n // ALERTA //\n" + createdAlerts.get(i));
+        }
+    }
+
 }
