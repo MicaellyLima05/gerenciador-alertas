@@ -44,4 +44,8 @@ public class Alert {
         return this.id;
     }
 
+    public String getSeverity() {
+        return this.severity;
+    }
+
 }

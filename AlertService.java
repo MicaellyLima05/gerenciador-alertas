@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class AlertService extends Alert{
+public class AlertService {
 
     public void registerAlert(Alert alert, String type, String description, String severity) {
         alert.setId();
@@ -10,10 +10,10 @@ public class AlertService extends Alert{
         alert.setSeverity(severity);
     }
 
-    public Map<Integer, String> createdAlerts = new HashMap<>();
+    public Map<Integer, Alert> createdAlerts = new HashMap<>();
 
-    public void addCreatedAlert(int alertId, String alertToString) {
-        createdAlerts.put(alertId, alertToString);
+    public void addCreatedAlert(int alertId, Alert alert) {
+        createdAlerts.put(alertId, alert);
     }
 
     public void listCreatedAlerts() {
@@ -23,21 +23,19 @@ public class AlertService extends Alert{
     }
 
     public void listCreatedAlertsBySeverity(String severity) {
-        createdAlerts.forEach((key, value) -> {
-                if (value.contains(severity)) {
-                    System.out.println("\n // ALERTA //\n" + value);
-                }
-            });
+        for (int i = 0; i < createdAlerts.size(); i++) {
+            if (createdAlerts.get(i).getSeverity().equals(severity)) {
+                System.out.println("\n // ALERTA //\n" + createdAlerts.get(i).toString());
+            }
+        }
     }
 
     public void solveAlert(int id) {
         createdAlerts.forEach((key, value) -> {
                 if (key == id) {
-                    
+                    value.resolvedTrue();
                     System.out.println(createdAlerts.get(key));
                 }
             });
-
     }
-
 }

@@ -27,12 +27,12 @@ public class Main {
                         String descriptionAlert = inputUser.next();
 
                         System.out.print("\nEscolha um nível de severidade (LOW, MEDIUM, HIGH): ");
-                        String severityAlert = inputUser.next();
+                        String severityAlert = inputUser.next().toUpperCase();
 
                         alert = new Alert();
 
                         alertManager.registerAlert(alert, typeAlert, descriptionAlert, severityAlert);
-                        alertManager.addCreatedAlert(alert.getId(), alert.toString());
+                        alertManager.addCreatedAlert(alert.getId(), alert);
 
                         if (alert != null) {
                             System.out.print("\nAlerta nº " + alert.getId() + " cadastrado com sucesso.\n");
@@ -51,7 +51,7 @@ public class Main {
                     case 4:
                         System.out.print("\nQual severidade deseja verificar(LOW, MEDIUM, HIGH): ");
                         String severityToList = inputUser.next();
-                        alertManager.listCreatedAlertsBySeverity(severityToList);
+                        alertManager.listCreatedAlertsBySeverity(severityToList.toUpperCase());
                         break;
                     case 5:
                         break;
