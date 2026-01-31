@@ -11,6 +11,7 @@ public class Main {
 
         int option = 0;
         AlertService alertManager = new AlertService();
+        Alert alert;
 
         try {
             while (option != 5) {
@@ -28,7 +29,7 @@ public class Main {
                         System.out.print("\nEscolha um nível de severidade (LOW, MEDIUM, HIGH): ");
                         String severityAlert = inputUser.next();
 
-                        Alert alert = new Alert();
+                        alert = new Alert();
 
                         alertManager.registerAlert(alert, typeAlert, descriptionAlert, severityAlert);
                         alertManager.addCreatedAlert(alert.getId(), alert.toString());
@@ -40,6 +41,9 @@ public class Main {
                         }
                         break;
                     case 2:
+                        System.out.print("\nQual id do Alerta resolvido: ");
+                        int idAlert = inputUser.nextInt();
+                        alertManager.solveAlert(idAlert);
                         break;
                     case 3:
                         alertManager.listCreatedAlerts();

@@ -30,4 +30,14 @@ public class AlertService extends Alert{
             });
     }
 
+    public void solveAlert(int id) {
+        createdAlerts.forEach((key, value) -> {
+                if (key == id) {
+                    
+                    System.out.println(createdAlerts.get(key));
+                }
+            });
+
+    }
+
 }

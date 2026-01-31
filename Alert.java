@@ -10,10 +10,16 @@ public class Alert {
 
     private String severity;
 
-    private Boolean resolved;
+    private Boolean resolved = false;
 
     public String toString() {
-        return "\nId: " + this.id + "\nTipo: " + this.type + "\nDescrição: " + this.description + "\nSeveridade: " + this.severity;
+        return "\nId: " + this.id + "\nTipo: " + this.type + "\nDescrição: " + this.description + "\nSeveridade: " + this.severity + "\nResolvido: " + this.resolved;
+    }
+
+
+
+    public void resolvedTrue() {
+        this.resolved = true;
     }
 
     //setters
